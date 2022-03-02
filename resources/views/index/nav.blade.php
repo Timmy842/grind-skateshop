@@ -35,3 +35,9 @@
             <a href="#">Login</a>
         </div>
     </div>
+
+    <main class="py-8">
+        @yield('content')
+    </main>
+</body>
+</html>
