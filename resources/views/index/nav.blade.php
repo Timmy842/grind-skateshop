@@ -16,7 +16,7 @@
 </head>
 <body class="bg-fondo">
     <div class="w-full flex justify-between py-6 px-6 bg-azul-principal items-center">
-        <a href="">
+        <a href="{{ url('/') }}">
             <h1 class="font-bold text-3xl grid">
                 <span>Grind</span>
                 <span>SkateShop</span>
