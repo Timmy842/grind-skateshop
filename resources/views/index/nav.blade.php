@@ -36,7 +36,7 @@
         </div>
     </div>
 
-    <main class="py-8">
+    <main class="w-4/5 my-8 m-auto bg-azul-claro">
         @yield('content')
     </main>
 </body>
