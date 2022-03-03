@@ -26,4 +26,5 @@ Route::get('/', function () {
 
 // Routes Marcas
 
+Route::get('marcas.marca/{id_marca}', [MarcasController::class, 'show']);
 Route::get('marcas.index', [MarcasController::class, 'index']);
