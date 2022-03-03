@@ -51,9 +51,16 @@ class MarcasController extends Controller
      * @param  \App\Models\Marcas  $marcas
      * @return \Illuminate\Http\Response
      */
-    public function show(Marcas $marcas)
+    public function show($id_marca)
     {
         //
+        
+        $marcas = DB::table('marcas')
+        ->select('*')
+        ->where('id', '=', $id_marca)
+        ->get();
+
+        return view('marcas.marca', compact('marcas'));
     }
 
     /**
