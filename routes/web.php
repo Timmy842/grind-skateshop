@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MarcasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Routes Index
+
 Route::get('/', function () {
     return view('index');
 });
+
+// Routes Productos
+
+
+
+// Routes Marcas
+
+Route::get('marcas.index', [MarcasController::class, 'index']);
