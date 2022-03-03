@@ -27,7 +27,7 @@
             <a class="mx-6 font-semibold hover:text-white hover:underline" href="#">Tablas</a>
             <a class="mx-6 font-semibold hover:text-white hover:underline" href="#">Ejes</a>
             <a class="mx-6 font-semibold hover:text-white hover:underline" href="#">Ruedas</a>
-            <a class="mx-6 font-semibold hover:text-white hover:underline" href="#">Marcas</a>
+            <a class="mx-6 font-semibold hover:text-white hover:underline" href="{{ url('marcas.index') }}">{{ __('Marcas') }}</a>
             <a class="mx-6 font-semibold hover:text-white hover:underline" href="#">Sobre Nosotros</a>
         </div>
 
