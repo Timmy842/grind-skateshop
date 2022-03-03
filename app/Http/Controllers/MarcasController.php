@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Marcas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MarcasController extends Controller
 {
@@ -15,6 +16,12 @@ class MarcasController extends Controller
     public function index()
     {
         //
+
+        $marcas = DB::table('marcas')
+                    ->select('*')
+                    ->get();
+        
+        return view('marcas.index', compact('marcas'));
     }
 
     /**
