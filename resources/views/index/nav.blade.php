@@ -38,7 +38,7 @@
         </div>
     </div>
 
-    <main class="w-4/5 m-auto my-8 bg-azul-claro">
+    <main class="w-4/5 m-auto my-8 rounded-lg bg-azul-claro">
         @yield('content')
     </main>
 </body>
