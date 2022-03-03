@@ -24,7 +24,6 @@ return new class extends Migration
             $table->string('image', 500);
             $table->decimal('precio', 10, 2);
             $table->string('medida', 10);
-            $table->string('tipo_producto', 100);
             
             $table->timestamps();
 
