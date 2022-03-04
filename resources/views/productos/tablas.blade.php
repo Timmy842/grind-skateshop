@@ -7,8 +7,8 @@
 
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
     @foreach ($productos as $producto)
-    <div class="max-w-sm m-8 bg-white rounded-lg shadow-md hover:m-2">
-        <a href="{{ url('/marcas.marca.' . $producto->id) }}">
+    <div class="max-w-sm m-8 bg-white rounded-lg shadow-md">
+        <a href="{{ url('/productos.tabla.' . $producto->id) }}">
             <div class="flex justify-center h-60">
                 <img class="p-8 rounded-t-lg"
                 src="{{ $producto->image }}"
@@ -19,6 +19,15 @@
                 <h2 class="text-3xl font-bold tracking-tight text-center text-gray-900">
                     {{ $producto->nombre }}
                 </h2>
+
+                <div class="items-center my-4">
+                    <span class="text-3xl font-bold text-gray-700">{{ $producto->precio }}€</span>
+                </div>
+    
+                <a href="#"
+                    class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center flex justify-center">
+                    Añadir al carrito
+                </a>
             </div>
         </a>
     </div>
