@@ -3,7 +3,7 @@
 
 <h2 class="flex justify-center py-8 text-2xl font-bold">Grind SkateShop, la tienda para skaters</h2>
 
-<h3 class="p-8 text-2xl font-bold text-blue-500">Tablas de Skate</h3>
+<h3 class="flex justify-center p-8 text-5xl font-bold text-blue-500">Tablas de Skate</h3>
 
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
     @foreach ($productos as $producto)
@@ -16,7 +16,7 @@
             </div>
 
             <div class="w-full px-5 pb-5">
-                <h2 class="text-3xl font-bold tracking-tight text-center text-gray-900">
+                <h2 class="h-20 text-3xl font-bold tracking-tight text-center text-gray-900">
                     {{ $producto->nombre }}
                 </h2>
 
