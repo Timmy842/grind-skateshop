@@ -12,7 +12,7 @@
             </div>
 
             <div class="col-start-2 col-end-4">
-                <h2 class="text-5xl font-bold tracking-tight text-center text-gray-900">
+                <h2 class="mb-8 text-5xl font-bold tracking-tight text-center text-gray-900">
                     {{ $producto->nombre }}
                 </h2>
 
@@ -20,7 +20,7 @@
                     <span class="text-3xl font-bold text-gray-700">{{ $producto->precio }}€</span>
                 </div>
 
-                <div class="grid grid-cols-3 gap-4">
+                <div class="grid items-center grid-cols-3 gap-4">
                     <div class="col-start-1">
                         <div class="relative flex flex-row w-full h-10 mt-1 bg-transparent rounded-lg">
                             <button data-action="decrement" class="w-20 h-full text-gray-600 bg-gray-300 rounded-l outline-none cursor-pointer hover:text-gray-700 hover:bg-gray-400">
@@ -36,15 +36,24 @@
                         </div>
                     </div>
 
-                    <a href="#" class="col-start-2 col-end-4 p-6 text-lg font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800">
+                    <a href="#" class="col-start-2 col-end-4 p-4 text-lg font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800">
                         Añadir al carrito
                     </a>
                 </div>
+
+                <div class="flex items-center justify-around">
+                    <h2 class="text-2xl font-bold text-azul-principal">Marca:</h2>
+                    
+                    <img src="{{ $marcas[0]->image }}" alt="{{ $marcas[0]->nombre }}">
+                </div>
             </div>
         </div>
-        @endforeach
     </div>
+    @endforeach
 </div>
 
 @endsection
 
+@section('scripts')
+    <script type="text/javascript" src="http://localhost/grind-skateshop/resources/js/cantidadProducto.js"></script>
+@endsection
