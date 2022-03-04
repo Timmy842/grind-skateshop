@@ -34,8 +34,13 @@ class ProductosController extends Controller
                          ->select('*')
                          ->where('id', $id_producto)
                          ->get();
+
+        $marcas = DB::table('marcas')
+                      ->select('*')
+                      ->where('id', $productos[0]->marca_id)
+                      ->get();
         
-        return view('productos.tabla', compact('productos'));
+        return view('productos.tabla', compact('productos', 'marcas'));
     }
 
     /**
