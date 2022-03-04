@@ -24,7 +24,7 @@
         </a>
 
         <div class="flex justify-between text-lg">
-            <a class="mx-6 font-semibold hover:text-white hover:underline" href="#">Tablas</a>
+            <a class="mx-6 font-semibold hover:text-white hover:underline" href="{{ url('productos.tablas') }}">Tablas</a>
             <a class="mx-6 font-semibold hover:text-white hover:underline" href="#">Ejes</a>
             <a class="mx-6 font-semibold hover:text-white hover:underline" href="#">Ruedas</a>
             <a class="mx-6 font-semibold hover:text-white hover:underline" href="{{ url('marcas.index') }}">{{ __('Marcas') }}</a>
@@ -41,5 +41,7 @@
     <main class="w-4/5 m-auto my-8 rounded-lg bg-azul-claro">
         @yield('content')
     </main>
+
+    @yield('scripts')
 </body>
 </html>
