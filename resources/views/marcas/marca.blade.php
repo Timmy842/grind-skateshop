@@ -11,7 +11,7 @@
         </div>
 
         <div class="w-full px-5 pb-5">
-            <h2 class="text-3xl font-bold tracking-tight text-center text-gray-900">
+            <h2 class="text-3xl font-bold tracking-tight text-center text-azul-principal">
                 {{ $marca->nombre }}
             </h2>
 
@@ -36,7 +36,7 @@
             </div>
 
             <div class="w-full px-5 pb-5">
-                <h2 class="text-3xl font-bold tracking-tight text-center text-gray-900">
+                <h2 class="h-20 text-3xl font-bold tracking-tight text-center text-gray-900">
                     {{ $producto->nombre }}
                 </h2>
 
@@ -53,5 +53,13 @@
     </div>
     @endforeach
 </div>
+
+@if ($productos == '[]')
+    <h2 class="flex justify-center p-8 text-5xl font-bold text-azul-principal">No hay productos de esta marca en stock</h2>
+
+    <div class="flex justify-center p-8">
+        <a href="{{ url('marcas.index') }}" class="p-4 m-4 text-xl font-bold rounded-md bg-fondo">Volver a las Marcas</a>
+    </div>
+@endif
 
 @endsection
