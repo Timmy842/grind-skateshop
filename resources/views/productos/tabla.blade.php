@@ -44,7 +44,9 @@
                 <div class="flex items-center justify-around">
                     <h2 class="text-2xl font-bold text-azul-principal">Marca:</h2>
                     
-                    <img src="{{ $marcas[0]->image }}" alt="{{ $marcas[0]->nombre }}">
+                    <a href="{{ url('/marcas.marca.' . $marcas[0]->id) }}">
+                        <img src="{{ $marcas[0]->image }}" alt="{{ $marcas[0]->nombre }}">
+                    </a>
                 </div>
             </div>
         </div>
