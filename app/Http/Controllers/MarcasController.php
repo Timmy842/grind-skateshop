@@ -57,7 +57,7 @@ class MarcasController extends Controller
         
         $marcas = DB::table('marcas')
         ->select('*')
-        ->where('id', '=', $id_marca)
+        ->where('id', $id_marca)
         ->get();
 
         return view('marcas.marca', compact('marcas'));
