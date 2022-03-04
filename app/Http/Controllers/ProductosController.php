@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Productos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductosController extends Controller
 {
@@ -15,6 +16,26 @@ class ProductosController extends Controller
     public function index()
     {
         //
+    }
+
+    public function verTablas()
+    {
+        $productos = DB::table('productos')
+                         ->select('*')
+                         ->where('tipo_id', '1')
+                         ->get();
+        
+        return view('productos.tablas', compact('productos'));
+    }
+
+    public function verTabla($id_producto)
+    {
+        $productos = DB::table('productos')
+                         ->select('*')
+                         ->where('id', $id_producto)
+                         ->get();
+        
+        return view('productos.tabla', compact('productos'));
     }
 
     /**
