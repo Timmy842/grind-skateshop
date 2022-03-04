@@ -56,11 +56,16 @@ class MarcasController extends Controller
         //
         
         $marcas = DB::table('marcas')
-        ->select('*')
-        ->where('id', $id_marca)
-        ->get();
+                      ->select('*')
+                      ->where('id', $id_marca)
+                      ->get();
 
-        return view('marcas.marca', compact('marcas'));
+        $productos = DB::table('productos')
+                         ->select('*')
+                         ->where('marca_id', $id_marca)
+                         ->get();
+                         
+        return view('marcas.marca', compact('marcas', 'productos'));
     }
 
     /**
