@@ -18,6 +18,40 @@ class ProductosController extends Controller
         //
     }
 
+    // public function productos($id_producto)
+    // {
+    //     $productos = DB::table('productos')
+    //                      ->select('*')
+    //                      ->where('id', $id_producto)
+    //                      ->get();
+
+    //     $marcas = DB::table('marcas')
+    //                   ->select('*')
+    //                   ->where('id', $productos[0]->marca_id)
+    //                   ->get();
+        
+    //     switch($productos)
+    //     {
+    //         case $productos[0]->tipo_id == 1:
+    //             return view('productos.tabla', compact('productos', 'marcas'));
+
+    //             break;
+
+    //         case $productos[0]->tipo_id == 2:
+    //             return view('productos.eje', compact('productos', 'marcas'));
+    
+    //             break;
+    //         case $productos[0]->tipo_id == 3:
+    //             return view('productos.rueda', compact('productos', 'marcas'));
+    
+    //             break;
+    //         default:
+    //             return view('index');
+
+    //             break;
+    //     }
+    // }
+
     public function verTablas()
     {
         $productos = DB::table('productos')
@@ -39,8 +73,32 @@ class ProductosController extends Controller
                       ->select('*')
                       ->where('id', $productos[0]->marca_id)
                       ->get();
+
+        // switch($productos)
+        // {
+        //     case $productos[0]->tipo_id == 1:
+        //         return view('productos.tabla', compact('productos', 'marcas'));
+
+        //         break;
+
+        //     case $productos[0]->tipo_id == 2:
+        //         return view('productos.eje', compact('productos', 'marcas'));
+    
+        //         break;
+        //     case $productos[0]->tipo_id == 3:
+        //         return view('productos.rueda', compact('productos', 'marcas'));
+    
+        //         break;
+        //     default:
+        //         return view('index');
+
+        //         break;
+        // }
         
-        return view('productos.tabla', compact('productos', 'marcas'));
+        if($productos[0]->tipo_id == 1)
+            return view('productos.tabla', compact('productos', 'marcas'));
+        else
+            return view('views.index');
     }
 
     /**
