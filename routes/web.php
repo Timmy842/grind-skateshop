@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MarcasController;
+use App\Http\Controllers\ProductosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +23,10 @@ Route::get('/', function () {
 
 // Routes Productos
 
-
+Route::get('productos.tablas', [ProductosController::class, 'verTablas']);
+Route::get('productos.tabla.{id_producto}', [ProductosController::class, 'verTabla']);
 
 // Routes Marcas
 
-Route::get('marcas.marca/{id_marca}', [MarcasController::class, 'show']);
+Route::get('marcas.marca.{id_marca}', [MarcasController::class, 'show']);
 Route::get('marcas.index', [MarcasController::class, 'index']);
