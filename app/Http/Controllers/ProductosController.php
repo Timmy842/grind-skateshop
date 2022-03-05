@@ -52,6 +52,8 @@ class ProductosController extends Controller
     //     }
     // }
 
+    /* Funciones Controlador de Tablas */
+
     public function verTablas()
     {
         $productos = DB::table('productos')
@@ -59,7 +61,7 @@ class ProductosController extends Controller
                          ->where('tipo_id', '1')
                          ->get();
         
-        return view('productos.tablas', compact('productos'));
+        return view('productos.tablas.index', compact('productos'));
     }
 
     public function verTabla($id_producto)
@@ -96,10 +98,22 @@ class ProductosController extends Controller
         // }
         
         if($productos[0]->tipo_id == 1)
-            return view('productos.tabla', compact('productos', 'marcas'));
+            return view('productos.tablas.tabla', compact('productos', 'marcas'));
         else
             return view('views.index');
     }
+
+        /* Funciones Controlador de Ejes */
+
+        public function verEjes()
+        {
+            $productos = DB::table('productos')
+                             ->select('*')
+                             ->where('tipo_id', '2')
+                             ->get();
+            
+            return view('productos.ejes.index', compact('productos'));
+        }    
 
     /**
      * Show the form for creating a new resource.
