@@ -23,8 +23,11 @@ Route::get('/', function () {
 
 // Routes Productos
 
-Route::get('productos.tablas', [ProductosController::class, 'verTablas']);
-Route::get('productos.tabla.{id_producto}', [ProductosController::class, 'verTabla']);
+Route::get('productos.tablas.tablas', [ProductosController::class, 'verTablas']);
+Route::get('productos.tablas.tabla.{id_producto}', [ProductosController::class, 'verTabla']);
+
+Route::get('productos.ejes.ejes', [ProductosController::class, 'verEjes']);
+Route::get('productos.ejes.eje.{id_producto}', [ProductosController::class, 'verEje']);
 
 // Routes Marcas
 
