@@ -24,9 +24,9 @@
         </a>
 
         <div class="flex justify-between text-lg">
-            <a class="mx-6 font-semibold duration-300 hover:text-white hover:underline" href="{{ url('productos.tablas') }}">{{ __('Tablas') }}</a>
-            <a class="mx-6 font-semibold duration-300 hover:text-white hover:underline" href="{{ url('productos.ejes') }}">{{ __('Ejes') }}</a>
-            <a class="mx-6 font-semibold duration-300 hover:text-white hover:underline" href="{{ url('productos.ruedas') }}">{{ __('Ruedas') }}</a>
+            <a class="mx-6 font-semibold duration-300 hover:text-white hover:underline" href="{{ url('tablas') }}">{{ __('Tablas') }}</a>
+            <a class="mx-6 font-semibold duration-300 hover:text-white hover:underline" href="{{ url('ejes') }}">{{ __('Ejes') }}</a>
+            <a class="mx-6 font-semibold duration-300 hover:text-white hover:underline" href="{{ url('ruedas') }}">{{ __('Ruedas') }}</a>
             <a class="mx-6 font-semibold duration-300 hover:text-white hover:underline" href="{{ url('marcas') }}">{{ __('Marcas') }}</a>
             <a class="mx-6 font-semibold duration-300 hover:text-white hover:underline" href="#">Sobre Nosotros</a>
         </div>
