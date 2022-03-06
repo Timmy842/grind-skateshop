@@ -24,15 +24,15 @@
         </a>
 
         <div class="flex justify-between text-lg">
-            <a class="mx-6 font-semibold hover:text-white hover:underline" href="{{ url('productos.tablas') }}">{{ __('Tablas') }}</a>
-            <a class="mx-6 font-semibold hover:text-white hover:underline" href="{{ url('productos.ejes') }}">{{ __('Ejes') }}</a>
-            <a class="mx-6 font-semibold hover:text-white hover:underline" href="{{ url('productos.ruedas') }}">{{ __('Ruedas') }}</a>
-            <a class="mx-6 font-semibold hover:text-white hover:underline" href="{{ url('marcas') }}">{{ __('Marcas') }}</a>
-            <a class="mx-6 font-semibold hover:text-white hover:underline" href="#">Sobre Nosotros</a>
+            <a class="mx-6 font-semibold duration-300 hover:text-white hover:underline" href="{{ url('productos.tablas') }}">{{ __('Tablas') }}</a>
+            <a class="mx-6 font-semibold duration-300 hover:text-white hover:underline" href="{{ url('productos.ejes') }}">{{ __('Ejes') }}</a>
+            <a class="mx-6 font-semibold duration-300 hover:text-white hover:underline" href="{{ url('productos.ruedas') }}">{{ __('Ruedas') }}</a>
+            <a class="mx-6 font-semibold duration-300 hover:text-white hover:underline" href="{{ url('marcas') }}">{{ __('Marcas') }}</a>
+            <a class="mx-6 font-semibold duration-300 hover:text-white hover:underline" href="#">Sobre Nosotros</a>
         </div>
 
         <div
-            class="flex items-center justify-between p-2 text-lg bg-white rounded-md cursor-pointer hover:bg-blue-500 hover:text-white">
+            class="flex items-center justify-between p-2 text-lg duration-300 bg-white rounded-md cursor-pointer hover:bg-blue-500 hover:text-white">
             <a href="#" class="mr-4">Iniciar Sesion</a>
             <x-fas-user class="w-4 h-4" />
         </div>
