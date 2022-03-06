@@ -28,7 +28,7 @@
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
     @foreach ($productos as $producto)
     <div class="max-w-sm m-8 bg-white rounded-lg shadow-md">
-        <a href="{{ url('/productos.tabla.' . $producto->id) }}">
+        <a href="{{ url('/productos.' . $producto->id . '.' . $producto->tipo_id) }}">
             <div class="flex justify-center h-60">
                 <img class="p-8 rounded-t-lg"
                 src="{{ $producto->image }}"
@@ -58,7 +58,7 @@
     <h2 class="flex justify-center p-8 text-5xl font-bold text-azul-principal">No hay productos de esta marca en stock</h2>
 
     <div class="flex justify-center p-8">
-        <a href="{{ url('marcas.index') }}" class="p-4 m-4 text-xl font-bold rounded-md bg-fondo">Volver a las Marcas</a>
+        <a href="{{ url('marcas') }}" class="p-4 m-4 text-xl font-bold rounded-md bg-fondo">Volver a las Marcas</a>
     </div>
 @endif
 
