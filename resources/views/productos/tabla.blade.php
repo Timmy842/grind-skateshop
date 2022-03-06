@@ -15,9 +15,13 @@
                 <h2 class="mb-8 text-5xl font-bold tracking-tight text-center text-gray-900">
                     {{ $producto->nombre }}
                 </h2>
+                
+                <div class="items-start font-medium">
+                    <p class="text-xl">Medida: {{ $producto->medida }}</p>
+                </div>
 
                 <div class="items-center my-4">
-                    <span class="text-3xl font-bold text-gray-700">{{ $producto->precio }}€</span>
+                    <span class="text-3xl font-bold text-azul-principal">{{ $producto->precio }}€</span>
                 </div>
 
                 <div class="grid items-center grid-cols-3 gap-4">
