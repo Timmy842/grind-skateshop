@@ -80,7 +80,7 @@ class ProductosController extends Controller
         if ($productos[0]->tipo_id == 1)
             return view('productos.tabla', compact('productos', 'marcas'));
         else
-            return view('views.index');
+            return view('index');
     }
 
     /* Funciones Controlador de Ejes */
@@ -107,10 +107,10 @@ class ProductosController extends Controller
             ->where('id', $productos[0]->marca_id)
             ->get();
 
-        if ($productos[0]->tipo_id == 2)
+        if ($productos[0]->tipo_id != 2)
             return view('productos.eje', compact('productos', 'marcas'));
         else
-            return view('views.index');
+            return view('index');
     }
 
     /**
