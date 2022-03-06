@@ -19,7 +19,7 @@ class MarcasController extends Controller
 
         $marcas = DB::table('marcas')
                     ->select('*')
-                    ->get();
+                    ->paginate(9);
         
         return view('marcas.index', compact('marcas'));
     }
