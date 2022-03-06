@@ -107,7 +107,7 @@ class ProductosController extends Controller
             ->where('id', $productos[0]->marca_id)
             ->get();
 
-        if ($productos[0]->tipo_id == 1)
+        if ($productos[0]->tipo_id == 2)
             return view('productos.eje', compact('productos', 'marcas'));
         else
             return view('views.index');
