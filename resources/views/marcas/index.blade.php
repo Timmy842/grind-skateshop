@@ -25,4 +25,6 @@
     @endforeach
 </div>
 
+{!! $marcas->links() !!}
+
 @endsection
