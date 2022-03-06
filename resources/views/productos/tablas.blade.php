@@ -21,7 +21,7 @@
                 </h2>
 
                 <div class="items-center my-4">
-                    <span class="text-3xl font-bold text-gray-700">{{ $producto->precio }}€</span>
+                    <span class="text-3xl font-bold text-azul-principal">{{ $producto->precio }}€</span>
                 </div>
     
                 <a href="#"
