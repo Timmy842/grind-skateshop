@@ -27,8 +27,8 @@
                                 <span class="m-auto text-2xl font-thin">−</span>
                             </button>
 
-                            <input type="number" class="flex items-center w-full font-semibold text-center text-gray-700 bg-gray-300 outline-none focus:outline-none text-md hover:text-black focus:text-black md:text-basecursor-default"
-                                name="custom-input-number" value="0"></input>
+                            <input id="cantidad" class="flex items-center w-full font-semibold text-center text-gray-700 bg-gray-300 outline-none focus:outline-none text-md hover:text-black focus:text-black md:text-basecursor-default"
+                                name="custom-input-number" value="0" readonly></input>
 
                             <button data-action="increment" class="w-20 h-full text-gray-600 bg-gray-300 rounded-r cursor-pointer hover:text-gray-700 hover:bg-gray-400">
                                 <span class="m-auto text-2xl font-thin">+</span>
