@@ -23,6 +23,8 @@ Route::get('/', function () {
 
 // Routes Productos
 
+Route::get('productos.{id_producto}.{tipo_id}', [ProductosController::class, 'verProductos']); // Desde cada marca poder ir a un producto
+
 Route::get('productos.tablas', [ProductosController::class, 'verTablas']);
 Route::get('productos.tabla.{id_producto}', [ProductosController::class, 'verTabla']);
 
@@ -32,4 +34,4 @@ Route::get('productos.eje.{id_producto}', [ProductosController::class, 'verEje']
 // Routes Marcas
 
 Route::get('marcas.marca.{id_marca}', [MarcasController::class, 'show']);
-Route::get('marcas.index', [MarcasController::class, 'index']);
+Route::resource('marcas', MarcasController::class);
