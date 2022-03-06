@@ -18,39 +18,41 @@ class ProductosController extends Controller
         //
     }
 
-    // public function productos($id_producto)
-    // {
-    //     $productos = DB::table('productos')
-    //                      ->select('*')
-    //                      ->where('id', $id_producto)
-    //                      ->get();
+    /* Funcion para controlar los productos desde marcas */
+    
+    public function verProductos($id_producto, $tipo_id)
+    {
+        $productos = DB::table('productos')
+                         ->select('*')
+                         ->where('id', $id_producto)
+                         ->get();
 
-    //     $marcas = DB::table('marcas')
-    //                   ->select('*')
-    //                   ->where('id', $productos[0]->marca_id)
-    //                   ->get();
+        $marcas = DB::table('marcas')
+                      ->select('*')
+                      ->where('id', $productos[0]->marca_id)
+                      ->get();
         
-    //     switch($productos)
-    //     {
-    //         case $productos[0]->tipo_id == 1:
-    //             return view('productos.tabla', compact('productos', 'marcas'));
+        switch($productos)
+        {
+            case $tipo_id == 1:
+                return view('productos.tabla', compact('productos', 'marcas'));
 
-    //             break;
+                break;
 
-    //         case $productos[0]->tipo_id == 2:
-    //             return view('productos.eje', compact('productos', 'marcas'));
+            case $tipo_id == 2:
+                return view('productos.eje', compact('productos', 'marcas'));
     
-    //             break;
-    //         case $productos[0]->tipo_id == 3:
-    //             return view('productos.rueda', compact('productos', 'marcas'));
+                break;
+            case $tipo_id == 3:
+                return view('productos.rueda', compact('productos', 'marcas'));
     
-    //             break;
-    //         default:
-    //             return view('index');
+                break;
+            default:
+                return view('index');
 
-    //             break;
-    //     }
-    // }
+                break;
+        }
+    }
 
     /* Funciones Controlador de Tablas */
 
@@ -75,27 +77,6 @@ class ProductosController extends Controller
                       ->select('*')
                       ->where('id', $productos[0]->marca_id)
                       ->get();
-
-        // switch($productos)
-        // {
-        //     case $productos[0]->tipo_id == 1:
-        //         return view('productos.tabla', compact('productos', 'marcas'));
-
-        //         break;
-
-        //     case $productos[0]->tipo_id == 2:
-        //         return view('productos.eje', compact('productos', 'marcas'));
-    
-        //         break;
-        //     case $productos[0]->tipo_id == 3:
-        //         return view('productos.rueda', compact('productos', 'marcas'));
-    
-        //         break;
-        //     default:
-        //         return view('index');
-
-        //         break;
-        // }
         
         if($productos[0]->tipo_id == 1)
             return view('productos.tabla', compact('productos', 'marcas'));
