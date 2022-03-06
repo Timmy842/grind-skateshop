@@ -19,33 +19,32 @@ class ProductosController extends Controller
     }
 
     /* Funcion para controlar los productos desde marcas */
-    
+
     public function verProductos($id_producto, $tipo_id)
     {
         $productos = DB::table('productos')
-                         ->select('*')
-                         ->where('id', $id_producto)
-                         ->get();
+            ->select('*')
+            ->where('id', $id_producto)
+            ->get();
 
         $marcas = DB::table('marcas')
-                      ->select('*')
-                      ->where('id', $productos[0]->marca_id)
-                      ->get();
-        
-        switch($productos)
+            ->select('*')
+            ->where('id', $productos[0]->marca_id)
+            ->get();
+
+        switch ($productos)
         {
             case $tipo_id == 1:
                 return view('productos.tabla', compact('productos', 'marcas'));
 
                 break;
-
             case $tipo_id == 2:
                 return view('productos.eje', compact('productos', 'marcas'));
-    
+
                 break;
             case $tipo_id == 3:
                 return view('productos.rueda', compact('productos', 'marcas'));
-    
+
                 break;
             default:
                 return view('index');
@@ -59,42 +58,60 @@ class ProductosController extends Controller
     public function verTablas()
     {
         $productos = DB::table('productos')
-                         ->select('*')
-                         ->where('tipo_id', '1')
-                         ->get();
-        
+            ->select('*')
+            ->where('tipo_id', '1')
+            ->get();
+
         return view('productos.tablas', compact('productos'));
     }
 
     public function verTabla($id_producto)
     {
         $productos = DB::table('productos')
-                         ->select('*')
-                         ->where('id', $id_producto)
-                         ->get();
+            ->select('*')
+            ->where('id', $id_producto)
+            ->get();
 
         $marcas = DB::table('marcas')
-                      ->select('*')
-                      ->where('id', $productos[0]->marca_id)
-                      ->get();
-        
-        if($productos[0]->tipo_id == 1)
+            ->select('*')
+            ->where('id', $productos[0]->marca_id)
+            ->get();
+
+        if ($productos[0]->tipo_id == 1)
             return view('productos.tabla', compact('productos', 'marcas'));
         else
             return view('views.index');
     }
 
-        /* Funciones Controlador de Ejes */
+    /* Funciones Controlador de Ejes */
 
-        public function verEjes()
-        {
-            $productos = DB::table('productos')
-                             ->select('*')
-                             ->where('tipo_id', '2')
-                             ->get();
-            
-            return view('productos.ejes', compact('productos'));
-        }    
+    public function verEjes()
+    {
+        $productos = DB::table('productos')
+            ->select('*')
+            ->where('tipo_id', '2')
+            ->get();
+
+        return view('productos.ejes', compact('productos'));
+    }
+
+    public function verEje($id_producto)
+    {
+        $productos = DB::table('productos')
+            ->select('*')
+            ->where('id', $id_producto)
+            ->get();
+
+        $marcas = DB::table('marcas')
+            ->select('*')
+            ->where('id', $productos[0]->marca_id)
+            ->get();
+
+        if ($productos[0]->tipo_id == 1)
+            return view('productos.eje', compact('productos', 'marcas'));
+        else
+            return view('views.index');
+    }
 
     /**
      * Show the form for creating a new resource.
