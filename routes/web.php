@@ -33,6 +33,6 @@ Route::get('productos.{id_producto}.{tipo_id}', [ProductosController::class, 've
 
 // Routes Marcas
 
-Route::get('marcas.marca.{id_marca}', [MarcasController::class, 'show']);
+Route::get('marca.{id_marca}', [MarcasController::class, 'show']);
 
 Route::resource('marcas', MarcasController::class);
