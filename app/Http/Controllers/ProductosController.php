@@ -107,7 +107,7 @@ class ProductosController extends Controller
             ->where('id', $productos[0]->marca_id)
             ->get();
 
-        if ($productos[0]->tipo_id != 2)
+        if ($productos[0]->tipo_id == 2)
             return view('productos.eje', compact('productos', 'marcas'));
         else
             return view('index');
@@ -137,7 +137,7 @@ class ProductosController extends Controller
                 ->where('id', $productos[0]->marca_id)
                 ->get();
     
-            if ($productos[0]->tipo_id != 3)
+            if ($productos[0]->tipo_id == 3)
                 return view('productos.rueda', compact('productos', 'marcas'));
             else
                 return view('index');
