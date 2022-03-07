@@ -29,6 +29,9 @@ Route::get('productos.tabla.{id_producto}', [ProductosController::class, 'verTab
 Route::get('ejes', [ProductosController::class, 'verEjes']);
 Route::get('productos.eje.{id_producto}', [ProductosController::class, 'verEje']);
 
+Route::get('ruedas', [ProductosController::class, 'verRuedas']);
+Route::get('productos.rueda.{id_producto}', [ProductosController::class, 'verRueda']);
+
 Route::get('productos.{id_producto}.{tipo_id}', [ProductosController::class, 'verProductos']); // Desde cada marca poder ir a un producto
 
 // Routes Marcas
