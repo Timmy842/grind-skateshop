@@ -19,6 +19,7 @@ class MarcasController extends Controller
 
         $marcas = DB::table('marcas')
                     ->select('*')
+                    ->orderBy('nombre', 'ASC')
                     ->paginate(9);
         
         return view('marcas.index', compact('marcas'));
