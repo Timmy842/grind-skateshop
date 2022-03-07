@@ -16,6 +16,13 @@ class ProductosController extends Controller
     public function index()
     {
         //
+
+        $productos = DB::table('productos')
+                        ->select('*')
+                        ->orderBy('precio', 'DESC')
+                        ->get();
+
+        return view('index', compact('productos'));
     }
 
     /* Funcion para controlar los productos desde marcas */
