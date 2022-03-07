@@ -42,6 +42,8 @@
         @yield('content')
     </main>
 
+    @extends('layouts.footer')
+
     @yield('scripts')
 </body>
 </html>
