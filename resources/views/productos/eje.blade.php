@@ -24,7 +24,7 @@
                     <span class="text-3xl font-bold text-azul-principal">{{ $producto->precio }}€</span>
                 </div>
 
-                <div class="grid items-center grid-cols-3 gap-4">
+                <div class="grid items-center grid-cols-3 gap-4 my-4">
                     <div class="col-start-1">
                         <div class="relative flex flex-row w-full h-10 mt-1 bg-transparent rounded-lg">
                             <button data-action="decrement" class="w-20 h-full text-gray-600 bg-gray-300 rounded-l outline-none cursor-pointer hover:text-gray-700 hover:bg-gray-400">
