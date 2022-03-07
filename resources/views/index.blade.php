@@ -10,17 +10,17 @@
     <div class="max-w-sm m-8 bg-white rounded-lg shadow-md hover:m-2">
         <a href="#">
             <img class="p-8 rounded-t-lg"
-                src="https://picnicskateshop.net/wp-content/uploads/2021/12/almost-dilo-animals-skateboard-tabla.jpg"
+                src="{{ $productos[$i]->image }}"
                 alt="product image" height="180px">
         </a>
 
         <div class="w-full px-5 pb-5">
             <a href="#" class="text-xl font-semibold tracking-tight text-gray-900">
-                Tabla Kaleidoskope
+                {{ $productos[$i]->nombre }}
             </a>
 
             <div class="items-center my-4">
-                <span class="text-3xl font-bold text-gray-900">$59</span>
+                <span class="text-3xl font-bold text-gray-900">{{ $productos[$i]->precio }}</span>
             </div>
 
             <a href="#"
