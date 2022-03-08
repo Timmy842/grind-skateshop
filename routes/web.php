@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MarcasController;
 use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\UsuariosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,7 @@ Route::get('productos.{id_producto}.{tipo_id}', [ProductosController::class, 've
 Route::get('marca.{id_marca}', [MarcasController::class, 'show']);
 
 Route::resource('marcas', MarcasController::class);
+
+// Routes Usuarios
+
+Route::get('login', [UsuariosController::class, 'index']);
