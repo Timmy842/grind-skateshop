@@ -18,11 +18,11 @@
         </div>
 
         <div class="flex justify-center">
-            <input type="submit" value="Inicar Sesion" class="p-2 px-6 m-4 text-white bg-blue-600 rounded-lg">
+            <input type="submit" value="Inicar Sesion" class="p-2 px-6 m-4 text-white bg-blue-600 rounded-lg cursor-pointer">
         </div>
 
         <div class="flex justify-center">
-            <a href="{{ url('/register') }}" class="p-2">¿No Tienes Cuanta? Registrate Ahora</a>
+            <a href="{{ url('/register') }}" class="m-4 duration-200 hover:underline">¿No Tienes Cuenta? Registrate Ahora</a>
         </div>
     </div>
 
