@@ -33,7 +33,7 @@
 
         <div
             class="flex items-center justify-between p-2 text-lg duration-300 bg-white rounded-md cursor-pointer hover:bg-blue-500 hover:text-white">
-            <a href="#" class="mr-4">Iniciar Sesion</a>
+            <a href="{{ url('login') }}" class="mr-4">{{ __('Iniciar Sesion') }}</a>
             <x-fas-user class="w-4 h-4" />
         </div>
     </div>
