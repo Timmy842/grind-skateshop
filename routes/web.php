@@ -42,3 +42,4 @@ Route::resource('marcas', MarcasController::class);
 // Routes Usuarios
 
 Route::get('login', [UsuariosController::class, 'index']);
+Route::get('register', [UsuariosController::class, 'create']);
