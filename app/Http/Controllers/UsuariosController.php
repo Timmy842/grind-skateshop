@@ -27,6 +27,8 @@ class UsuariosController extends Controller
     public function create()
     {
         //
+
+        return view('login.register');
     }
 
     /**
@@ -38,6 +40,14 @@ class UsuariosController extends Controller
     public function store(Request $request)
     {
         //
+
+        $datos = $request->except('_token');
+
+        
+
+        Usuarios::insert($datos);
+
+        return redirect('views.index');
     }
 
     /**
