@@ -22,7 +22,7 @@
         </div>
 
         <div class="flex justify-center">
-            <a href="{{ url('/register') }}" class="m-4 duration-200 hover:underline">¿No Tienes Cuenta? Registrate Ahora</a>
+            <a href="{{ url('register/create') }}" class="m-4 duration-200 hover:underline">¿No Tienes Cuenta? Registrate Ahora</a>
         </div>
     </div>
 

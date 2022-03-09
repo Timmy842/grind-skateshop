@@ -28,7 +28,7 @@
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
     @foreach ($productos as $producto)
     <div class="max-w-sm m-8 bg-white rounded-lg shadow-md">
-        <a href="{{ url('/productos.' . $producto->id . '.' . $producto->tipo_id) }}">
+        <a href="{{ url('/productos/' . $producto->id . '/' . $producto->tipo_id) }}">
             <div class="flex justify-center h-60">
                 <img class="p-8 rounded-t-lg"
                 src="{{ $producto->image }}"

@@ -8,7 +8,7 @@
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
     @foreach ($marcas as $marca)
     <div class="max-w-sm m-8 bg-white rounded-lg shadow-md">
-        <a href="{{ url('/marca.' . $marca->id) }}">
+        <a href="{{ url('/marca/' . $marca->id) }}">
             <div class="flex justify-center h-60">
                 <img class="p-8 rounded-t-lg"
                 src="{{ $marca->image }}"
