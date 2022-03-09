@@ -23,23 +23,24 @@ Route::get('/', [ProductosController::class, 'index']);
 // Routes Productos
 
 Route::get('tablas', [ProductosController::class, 'verTablas']);
-Route::get('productos.tabla.{id_producto}', [ProductosController::class, 'verTabla']);
+Route::get('productos/tabla/{id_producto}', [ProductosController::class, 'verTabla']);
 
 Route::get('ejes', [ProductosController::class, 'verEjes']);
-Route::get('productos.eje.{id_producto}', [ProductosController::class, 'verEje']);
+Route::get('productos/eje/{id_producto}', [ProductosController::class, 'verEje']);
 
 Route::get('ruedas', [ProductosController::class, 'verRuedas']);
-Route::get('productos.rueda.{id_producto}', [ProductosController::class, 'verRueda']);
+Route::get('productos/rueda/{id_producto}', [ProductosController::class, 'verRueda']);
 
-Route::get('productos.{id_producto}.{tipo_id}', [ProductosController::class, 'verProductos']); // Desde cada marca poder ir a un producto
+Route::get('productos/{id_producto}/{tipo_id}', [ProductosController::class, 'verProductos']); // Desde cada marca poder ir a un producto
 
 // Routes Marcas
 
-Route::get('marca.{id_marca}', [MarcasController::class, 'show']);
+Route::get('marca/{id_marca}', [MarcasController::class, 'show']);
 
 Route::resource('marcas', MarcasController::class);
 
 // Routes Usuarios
 
 Route::get('login', [UsuariosController::class, 'index']);
-Route::get('register', [UsuariosController::class, 'create']);
+
+Route::resource('register', UsuariosController::class);
