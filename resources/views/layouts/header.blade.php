@@ -9,7 +9,7 @@
     <link rel="icon" type="image/x-icon" href="http://localhost/grind-skateshop/resources/img/favicon.png">
 
     {{-- Custom CSS Tailwind --}}
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="http://localhost/grind-skateshop/public/css/app.css">
 
     <title>Grind SkateShop</title>
 
