@@ -8,23 +8,23 @@
 
     <div class="flex flex-col w-1/4">
         <div class="flex flex-col m-4">
-            <label for="nombre" class="mb-4 text-xl font-semibold text-center">Nombre</label>
-            <input type="text" name="nombre" id="nombre" class="p-2 border border-solid rounded border-azul-principal">
+            <label for="name" class="mb-4 text-xl font-semibold text-center">Nombre</label>
+            <input type="text" name="name" id="name" class="p-2 border border-solid rounded border-azul-principal">
         </div>
 
         <div class="flex flex-col m-4">
-            <label for="apellidos" class="mb-4 text-xl font-semibold text-center">Apellidos</label>
-            <input type="text" name="apellidos" id="apellidos" class="p-2 border border-solid rounded border-azul-principal">
+            <label for="lastName" class="mb-4 text-xl font-semibold text-center">Apellidos</label>
+            <input type="text" name="lastName" id="lastName" class="p-2 border border-solid rounded border-azul-principal">
         </div>
 
         <div class="flex flex-col m-4">
-            <label for="telefono" class="mb-4 text-xl font-semibold text-center">Telefono</label>
-            <input type="text" name="telefono" id="telefono" class="p-2 border border-solid rounded border-azul-principal">
+            <label for="telf" class="mb-4 text-xl font-semibold text-center">Telefono</label>
+            <input type="text" name="telf" id="telf" class="p-2 border border-solid rounded border-azul-principal">
         </div>
         
         <div class="flex flex-col m-4">
-            <label for="correo" class="mb-4 text-xl font-semibold text-center">Email</label>
-            <input type="email" name="correo" id="correo" class="p-2 border border-solid rounded border-azul-principal">
+            <label for="email" class="mb-4 text-xl font-semibold text-center">Email</label>
+            <input type="email" name="email" id="email" class="p-2 border border-solid rounded border-azul-principal">
         </div>
 
         <div class="flex flex-col m-4">
