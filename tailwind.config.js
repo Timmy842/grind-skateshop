@@ -3,6 +3,7 @@ module.exports = {
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
+    './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
   ],
   theme: {
     extend: {
@@ -11,6 +12,7 @@ module.exports = {
         'azul-normal': '#A3D5FF',
         'azul-claro': '#D9F0FF',
         'fondo': '#edf6fa',
+        'azul-google': '#4285F4',
       },
     },
   },
