@@ -1,20 +1,21 @@
-function decrement(e)
+function decrement()
 {
-    const btn = e.target.parentNode.parentElement.querySelector('button[data-action="decrement"]');
-    const target = btn.nextElementSibling;
+    const target = document.getElementById('cantidad');
     let value = Number(target.value);
 
     value--;
 
+    if(value < 1)
+        value = 1
+
     target.value = value;
 }
 
-function increment(e)
+function increment()
 {
-    const btn = e.target.parentNode.parentElement.querySelector('button[data-action="decrement"]');
-    const target = btn.nextElementSibling;
+    const target = document.getElementById('cantidad');
     let value = Number(target.value);
-
+    
     value++;
     
     target.value = value;
