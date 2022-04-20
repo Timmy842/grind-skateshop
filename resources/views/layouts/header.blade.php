@@ -9,7 +9,7 @@
     <link rel="icon" type="image/x-icon" href="http://localhost/grind-skateshop/resources/img/favicon.png">
 
     {{-- Custom CSS Tailwind --}}
-    <link rel="stylesheet" href="http://localhost/grind-skateshop/public/css/app.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     <title>Grind SkateShop</title>
 
@@ -31,11 +31,34 @@
             <a class="mx-6 font-semibold duration-300 hover:text-white hover:underline" href="#">Sobre Nosotros</a>
         </div>
 
-        <div
-            class="flex items-center justify-between p-2 text-lg duration-300 bg-white rounded-md cursor-pointer hover:bg-blue-500 hover:text-white">
-            <a href="{{ url('login') }}" class="mr-4">{{ __('Iniciar Sesion') }}</a>
-            <x-fas-user class="w-4 h-4" />
-        </div>
+        @if (Auth::check())
+
+            <div class="flex items-center justify-around w-1/6 space-x-4">
+
+                <a id="profile" href="{{ url('/profile') }}" class="flex items-center justify-around space-x-4">
+                    <img class="w-10 h-10 rounded-full" src="{{ Auth::user()->avatar }}" alt="">
+                    <div class="space-y-1 font-medium">
+                        <p>{{ Auth::user()->name }}</p>
+                        <p class="text-sm text-gray-500">Desde {{ date('d-m-Y', strtotime(Auth::user()->created_at)) }}</p>
+                    </div>
+                </a>
+
+                <form id="formLogout" action="{{ url('logout') }}" method="POST">
+                    @csrf
+                    
+                    <button type="submit" id="logout">{{ __('Logout!') }}</button>
+                </form>
+            </div>
+
+        @else
+
+            <div class="flex items-center justify-between p-2 text-lg duration-300 bg-white rounded-md cursor-pointer hover:bg-blue-500 hover:text-white">
+                <a href="{{ url('login') }}" class="mr-4">{{ __('Iniciar Sesion') }}</a>
+                <x-fas-user class="w-4 h-4" />
+            </div>
+
+        @endif
+
     </div>
 
     <main class="w-4/5 m-auto my-8 rounded-lg bg-azul-claro">
@@ -44,6 +67,7 @@
 
     @extends('layouts.footer')
 
+    <script src="js/app.js"></script>
     @yield('scripts')
 </body>
 </html>
