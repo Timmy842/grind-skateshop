@@ -1,7 +1,14 @@
 let buttonLogout = document.querySelector('#logout');
 
-buttonLogout.addEventListener('click', function (e) {
+if(buttonLogout === null)
+{
+    console.log('Waiting...');
+} else {
 
-    confirm('¿Desea cerrar sesion?');
+    buttonLogout.addEventListener('click', function (e) {
 
-})
+        confirm('¿Desea cerrar sesion?');
+    
+    })
+    
+}
