@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MarcasController;
 use App\Http\Controllers\ProductosController;
-use App\Http\Controllers\UsuariosController;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +44,49 @@ Route::resource('marcas', MarcasController::class);
 
 // Routes Usuarios
 
-Route::get('login', [UsuariosController::class, 'index']);
+Route::get('login', function() {
+    return view('/login/login');
+})->name('login')->middleware('guest');
 
-Route::resource('register', UsuariosController::class);
+Route::get('register', function() {
+    return view('/login/register');
+})->name('register')->middleware('guest');
+
+Route::post('/login', [LoginController::class, 'login']);
+
+Route::post('/register', [LoginController::class, 'register']);
+
+Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/login-google', function () {
+    return Socialite::driver('google')->redirect();
+});
+
+Route::get('/google-auth', function () {
+    $user = Socialite::driver('google')->user();
+
+    $userExists = User::where('external_id', $user->id)->where('external_auth', 'google')->first();
+
+    if($userExists)
+    {
+
+        Auth::login($userExists);
+
+    } else {
+
+        $userNew = User::create([
+            'name' => $user->name,
+            'email' => $user->email,
+            'avatar' => $user->avatar,
+            'external_id' => $user->id,
+            'external_auth' => 'google',
+        ]);
+        
+        Auth::login($userNew);
+
+    }
+    
+    return redirect('/');
+    
+    // $user->token
+});
