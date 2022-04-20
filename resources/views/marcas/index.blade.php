@@ -25,6 +25,10 @@
     @endforeach
 </div>
 
-{!! $marcas->links() !!}
+<div class="flex justify-around p-8">
+    <div class="w-3/4">
+        {!! $marcas->links() !!}
+    </div>
+</div>
 
 @endsection
