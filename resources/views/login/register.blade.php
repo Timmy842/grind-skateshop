@@ -29,7 +29,7 @@
 
         <div class="flex flex-col m-4">
             <label for="password" class="mb-4 text-xl font-semibold text-center">Contraseña</label>
-            <input type="text" name="password" id="password" class="p-2 border border-solid rounded border-azul-principal">
+            <input type="password" name="password" id="password" class="p-2 border border-solid rounded border-azul-principal">
         </div>
 
         <div class="flex justify-center">
@@ -38,4 +38,5 @@
     </div>
 
 </form>
+
 @endsection
