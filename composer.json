@@ -9,6 +9,7 @@
         "blade-ui-kit/blade-ui-kit": "^0.3.3",
         "doctrine/dbal": "^3.3",
         "guzzlehttp/guzzle": "^7.2",
+        "khatabwedaa/blade-css-icons": "^1.1",
         "laravel/framework": "^9.2",
         "laravel/sanctum": "^2.14.1",
         "laravel/socialite": "^5.5",
