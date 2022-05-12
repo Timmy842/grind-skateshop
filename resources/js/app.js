@@ -6,5 +6,5 @@ require('./header');
 
 if (secret_id !== null)
 {
-    require('./profileFetchPetition');   
+    require('./profileFetchPetition');
 }
