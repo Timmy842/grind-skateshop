@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Marcas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class MarcasController extends Controller
 {
@@ -33,6 +35,11 @@ class MarcasController extends Controller
     public function create()
     {
         //
+        
+        if(Auth::user()->permissions === 'admin')    
+            return view('marcas/create');
+        else
+            return redirect('/profile');
     }
 
     /**
@@ -44,6 +51,17 @@ class MarcasController extends Controller
     public function store(Request $request)
     {
         //
+
+        $datos = $request->except('_token');
+
+        if($request->hasFile('image'))
+        {
+            $datos['image'] = 'http://localhost/grind-skateshop/storage/app/public/' . $request->file('image')->store('uploads', 'public');
+        }
+
+        Marcas::insert($datos);
+
+        return redirect('admin/marcas');
     }
 
     /**
@@ -75,9 +93,21 @@ class MarcasController extends Controller
      * @param  \App\Models\Marcas  $marcas
      * @return \Illuminate\Http\Response
      */
-    public function edit(Marcas $marcas)
+    public function edit($id)
     {
         //
+
+        if(Auth::user()->permissions === 'admin')
+        {
+            $marca = Marcas::findOrFail($id);
+    
+            return view('marcas/edit', compact('marca'));
+
+        } else {
+
+            return redirect('/profile');
+            
+        }
     }
 
     /**
@@ -87,9 +117,24 @@ class MarcasController extends Controller
      * @param  \App\Models\Marcas  $marcas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Marcas $marcas)
+    public function update(Request $request, $id)
     {
         //
+
+        $datos = $request->except(['_token', '_method']);
+
+        if($request->hasFile('image'))
+        {
+            $image = Marcas::findOrFail($id);
+
+            Storage::delete('public/uploads/' . $image->image);
+
+            $datos['image'] = 'http://localhost/grind-skateshop/storage/app/public/' . $request->file('image')->store('uploads', 'public');
+        }
+
+        Marcas::where('id', $id)->update($datos);
+
+        return redirect('/admin/marcas');
     }
 
     /**
@@ -98,8 +143,31 @@ class MarcasController extends Controller
      * @param  \App\Models\Marcas  $marcas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Marcas $marcas)
+    public function destroy($id)
     {
         //
+        
+        $datos = Marcas::findOrFail($id);
+
+        $productosMarca = DB::table('productos')
+                          ->select('*')
+                          ->where('marca_id', $id)
+                          ->get();
+
+        if ($productosMarca === null) {
+
+            if($datos->image != '')
+                Storage::delete($datos->image);
+    
+            Marcas::destroy($id);
+    
+            return redirect('/profile')->with('mensaje', 'Marca Borrado Correctamente.');
+        } else {
+            
+            return redirect('/profile')->with('mensajeError', 'Marca Con Productos Actualmente.');
+            
+        }
+        
     }
+
 }
