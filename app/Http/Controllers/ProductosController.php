@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Marcas;
 use App\Models\Productos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ProductosController extends Controller
 {
@@ -158,6 +161,15 @@ class ProductosController extends Controller
     public function create()
     {
         //
+        
+        if(Auth::user()->permissions === 'admin')
+        {
+            $marcas = Marcas::all();
+        
+            return view('productos/create', compact('marcas'));
+        } else
+            return redirect('/profile');
+
     }
 
     /**
@@ -169,6 +181,40 @@ class ProductosController extends Controller
     public function store(Request $request)
     {
         //
+
+        $tipoProducto = '';
+        $tipoId = $request->only('tipo_id');
+
+        switch($tipoId)
+        {
+            case $tipoId['tipo_id'] === '1':
+                $tipoProducto = 'Tabla';
+
+                break;
+            case $tipoId['tipo_id'] === '2':
+                $tipoProducto = 'Eje';
+
+                break;
+            case $tipoId['tipo_id'] === '3':
+                $tipoProducto = 'Ruedas';
+
+                break;
+            default:
+                break;
+        }
+        
+        $datos = $request->except('_token');
+
+        $datos['tipo'] = $tipoProducto;
+        
+        if($request->hasFile('image'))
+        {
+            $datos['image'] = 'http://localhost/grind-skateshop/storage/app/public/' . $request->file('image')->store('uploads', 'public');
+        }
+
+        Productos::insert($datos);
+
+        return redirect('admin/productos');
     }
 
     /**
@@ -188,9 +234,22 @@ class ProductosController extends Controller
      * @param  \App\Models\Productos  $productos
      * @return \Illuminate\Http\Response
      */
-    public function edit(Productos $productos)
+    public function edit($producto_id)
     {
         //
+
+        if(Auth::user()->permissions === 'admin')
+        {
+            $producto = Productos::findOrFail($producto_id);
+
+            $marcas = Marcas::all();
+    
+            $marca_id = Marcas::findOrFail($producto->marca_id);        
+    
+            return view('productos/edit', compact('marca_id', 'producto', 'marcas'));
+            
+        } else
+            return redirect('/profile');
     }
 
     /**
@@ -200,9 +259,47 @@ class ProductosController extends Controller
      * @param  \App\Models\Productos  $productos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Productos $productos)
+    public function update(Request $request, $id)
     {
         //
+
+        $tipoProducto = '';
+        $tipoId = $request->only('tipo_id');
+
+        switch($tipoId)
+        {
+            case $tipoId['tipo_id'] === '1':
+                $tipoProducto = 'Tabla';
+
+                break;
+            case $tipoId['tipo_id'] === '2':
+                $tipoProducto = 'Eje';
+
+                break;
+            case $tipoId['tipo_id'] === '3':
+                $tipoProducto = 'Ruedas';
+
+                break;
+            default:
+                break;
+        }
+        
+        $datos = $request->except(['_token', '_method']);
+
+        $datos['tipo'] = $tipoProducto;
+
+        if($request->hasFile('image'))
+        {
+            $image = Productos::findOrFail($id);
+
+            Storage::delete('public/uploads/' . $image->image);
+
+            $datos['image'] = 'http://localhost/grind-skateshop/storage/app/public/' . $request->file('image')->store('uploads', 'public');
+        }
+
+        Productos::where('id', $id)->update($datos);
+
+        return redirect('/admin/productos');
     }
 
     /**
@@ -211,8 +308,17 @@ class ProductosController extends Controller
      * @param  \App\Models\Productos  $productos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Productos $productos)
+    public function destroy($id)
     {
         //
+
+        $datos = Productos::findOrFail($id);
+
+        if($datos->image != '')
+            Storage::delete($datos->image);
+
+        Productos::destroy($id);
+
+        return redirect('/profile')->with('mensaje', 'Producto Borrado Correctamente.');
     }
 }
