@@ -33,7 +33,7 @@
 
         @if (Auth::check())
 
-            <div class="flex items-center justify-around w-1/6 space-x-4">
+            <div class="flex items-center justify-around w-1/5 space-x-4">
 
                 <a id="profile" href="{{ url('/profile') }}" class="flex items-center justify-around space-x-4">
                     <img class="w-10 h-10 rounded-full" src="{{ Auth::user()->avatar }}" alt="">
@@ -43,10 +43,14 @@
                     </div>
                 </a>
 
+                <a href="{{ url('/carrito/' . Auth::user()->id) }}">
+                    <x-bi-cart-fill class="w-6 h-6" />
+                </a>
+
                 <form id="formLogout" action="{{ url('logout') }}" method="POST">
                     @csrf
                     
-                    <button type="submit" id="logout">{{ __('Logout!') }}</button>
+                    <button class="p-4 text-green-700 bg-white" type="submit" id="logout">{{ __('Logout!') }}</button>
                 </form>
             </div>
 
