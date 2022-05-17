@@ -123,35 +123,35 @@ class ProductosController extends Controller
             return view('index');
     }
 
-        /* Funciones Controlador de Ruedas */
+    /* Funciones Controlador de Ruedas */
 
-        public function verRuedas()
-        {
-            $productos = DB::table('productos')
-                ->select('*')
-                ->where('tipo_id', '3')
-                ->get();
-    
-            return view('productos.ruedas', compact('productos'));
-        }
-    
-        public function verRueda($id_producto)
-        {
-            $productos = DB::table('productos')
-                ->select('*')
-                ->where('id', $id_producto)
-                ->get();
-    
-            $marcas = DB::table('marcas')
-                ->select('*')
-                ->where('id', $productos[0]->marca_id)
-                ->get();
-    
-            if ($productos[0]->tipo_id == 3)
-                return view('productos.rueda', compact('productos', 'marcas'));
-            else
-                return view('index');
-        }
+    public function verRuedas()
+    {
+        $productos = DB::table('productos')
+            ->select('*')
+            ->where('tipo_id', '3')
+            ->get();
+
+        return view('productos.ruedas', compact('productos'));
+    }
+
+    public function verRueda($id_producto)
+    {
+        $productos = DB::table('productos')
+        ->select('*')
+            ->where('id', $id_producto)
+            ->get();
+
+        $marcas = DB::table('marcas')
+            ->select('*')
+            ->where('id', $productos[0]->marca_id)
+            ->get();
+
+        if ($productos[0]->tipo_id == 3)
+            return view('productos.rueda', compact('productos', 'marcas'));
+        else
+            return view('index');
+    }
 
     /**
      * Show the form for creating a new resource.
