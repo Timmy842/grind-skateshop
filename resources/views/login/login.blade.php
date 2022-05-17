@@ -27,7 +27,7 @@
 
         <hr class="w-full h-1 bg-white">
         
-        <a href="{{ url('/login-google') }}" class="p-2 m-4 text-white duration-200 rounded-lg bg-azul-google">
+        <a href="{{ url('/login-google') }}" class="p-2 m-4 duration-200 bg-white rounded-lg text-azul-google">
             <div class="flex items-center justify-around font-semibold">
                 <img src="http://localhost/grind-skateshop/resources/img/g-logo.png" alt="Google Logo" class="h-10">
                 <span>Inicia Sesion con Google</span>
